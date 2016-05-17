@@ -1,0 +1,27 @@
+jQuery(document).ready(function($) {
+	"use strict";
+ 
+  	$('.LF_accordion-section-content').slideUp(0);
+	$('.LF_accordion:first-child').find('.LF_accordion-section-content').slideDown(0);
+	$('.LF_accordion:first-child').find('.LF_accordion-section-title').addClass('active');
+ 	
+	
+ 	 
+ 
+    $('.LF_accordion-section-title').click(function(e) {
+ 
+        if(!$(e.target).is('.active')) {
+            
+			
+			$(this).closest('.LF_accordion-master').find('*').removeClass('active');
+		
+        	$(this).closest('.LF_accordion-master').find('.LF_accordion-section-content').slideUp(300).removeClass('open');
+			
+            $(this).addClass('active');
+           
+            $(this).siblings($('.LF_accordion-section-content')).slideDown(300).addClass('open'); 
+        }
+ 
+        e.preventDefault();
+    });
+});
